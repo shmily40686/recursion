@@ -5,7 +5,7 @@
 
 var stringifyJSON = function(obj) {
   // your code goes here
-  if (typeof obj ==='number') {
+  if (typeof obj === 'number') {
     return obj.toString();
   }
 };
