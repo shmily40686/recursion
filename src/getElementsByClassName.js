@@ -9,7 +9,7 @@ var getElementsByClassName = function(className) {
   var arr = [];
   var nodes = function (element) {
     if (element.className !== undefined) {
-      var classes = element.className.split(" ");
+      var classes = element.className.split(' ');
       if ( classes.indexOf(className) > -1 ) {
         arr.push(element);
       }
