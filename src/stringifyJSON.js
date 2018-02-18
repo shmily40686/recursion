@@ -9,8 +9,8 @@ var stringifyJSON = function(obj) {
     return obj.toString();
   } else if ( typeof obj === 'boolean' ) {
     return obj.toString();
-  } else if ( obj===null ) {
-    return "null";
+  } else if ( obj === null ) {
+    return 'null';
   } else if ( typeof obj === 'string' ) {
     return '"' + obj + '"';
   } else if ( Array.isArray(obj) ) {
@@ -18,7 +18,7 @@ var stringifyJSON = function(obj) {
       return '[]';
     } else {
       var returnString = '[';
-      for( var i = 0; i < obj.length; i++ ) {
+      for ( var i = 0; i < obj.length; i++ ) {
         returnString += stringifyJSON( obj[i] );
         if ( i < obj.length - 1 ) {
           returnString += ',';
@@ -27,8 +27,8 @@ var stringifyJSON = function(obj) {
       return returnString + ']';
     }
   } else if ( typeof obj === 'object' ) {
-    var returnObj='{';
-    for( var key in obj ) {
+    var returnObj = '{';
+    for ( var key in obj ) {
       if ( typeof obj[key] === 'function' || obj[key] === undefined ) {
       } else {
         returnObj += '"' + key + '":' + stringifyJSON( obj[key] ) + ',';
