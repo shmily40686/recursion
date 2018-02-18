@@ -7,36 +7,36 @@ var stringifyJSON = function(obj) {
   // your code goes here
   if (typeof obj === 'number') {
     return obj.toString();
-  } else if ( typeof obj === 'boolean' ){
+  } else if ( typeof obj === 'boolean' ) {
     return obj.toString();
-  } else if ( obj===null ){
+  } else if ( obj===null ) {
     return "null";
-  } else if ( typeof obj === 'string' ){
-    return '"'+obj+'"';
-  } else if ( Array.isArray(obj) ){
-    if ( obj.length===0 ){
+  } else if ( typeof obj === 'string' ) {
+    return '"' + obj + '"';
+  } else if ( Array.isArray(obj) ) {
+    if ( obj.length === 0 ) {
       return '[]';
     } else {
-      var returnString='[';
-      for( var i =0 ; i <obj.length; i++){
-        returnString += stringifyJSON(obj[i]);
-        if (i < obj.length - 1) {
+      var returnString = '[';
+      for( var i = 0; i < obj.length; i++ ) {
+        returnString += stringifyJSON( obj[i] );
+        if ( i < obj.length - 1 ) {
           returnString += ',';
         }
       }
-      return returnString+']';
+      return returnString + ']';
     }
-  } else if (typeof obj ==='object'){
+  } else if ( typeof obj === 'object' ) {
     var returnObj='{';
-    for( var key in obj){
-      if ( typeof obj[key] === 'function' || obj[key] === undefined ){
+    for( var key in obj ) {
+      if ( typeof obj[key] === 'function' || obj[key] === undefined ) {
       } else {
-        returnObj += '"' + key + '":' + stringifyJSON(obj[key]) + ',';
+        returnObj += '"' + key + '":' + stringifyJSON( obj[key] ) + ',';
       }
     }
-    if (returnObj.length ===1){
+    if ( returnObj.length === 1 ) {
       return '{}'; 
     }
-    return returnObj.substr(0,returnObj.length-1) + '}';
+    return returnObj.substr( 0, returnObj.length - 1 ) + '}';
   }
 };
